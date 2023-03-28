@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 
-const requestURL = 'http://localhost:7777/notes';
+const requestURL = 'http://localhost:7070/notes';
 const headers = {
 	'Content-Type': 'application/json'
 }
@@ -46,36 +48,40 @@ function ListNotes() {
 	};
 
     useEffect(() => {
-		update()
-	});
+		update();
+	}, [notes]);
 
 	return (
-		<div className={"main"}>
-			<div className={"header"}>
-				<h2>Notes</h2>
-				<button className={"update"} onClick={() => update()}>Update</button>
+		<>
+			<div className={'header'}>
+				<h2 className='header-h2'>Notes</h2>
+				<button className={'main-btn-update'} onClick={() => update()}><FontAwesomeIcon icon={icon({name: 'sync'})} /></button>
 			</div>
-			{notes.map((element) => {
-				return <div className={"external"} key={element.id}>
-					<button className={"close"} onClick={() => handleRemove(element.id)}>X</button>
-					<div className={"internal"}>{element.content}</div>
-				</div>
-			})
-			}
-			<form onSubmit={handleSubmit}>
-				<div>
-					<label className="form-label">New Note</label>
-				</div>
+			
+			<div className='desk'>
+				{notes.map((element) => {
+					return <div className={"external"} key={element.id}>
+							<button className={"main-btn-close"} onClick={() => handleRemove(element.id)}>
+								<FontAwesomeIcon icon={icon({name: 'xmark'})} />
+							</button>
+							<p className={"internal"}>{element.content}</p>
+						</div>
+					})
+				}
+			</div>
+			
+			<form className='form' onSubmit={handleSubmit}>
+				<label className="form-label">New Note</label>
 				<div className="note-text">
 					<textarea name={"story"} className="story"
 						rows="5" cols="33" onChange={handleChange} value={form.story}>
 					</textarea>
-					<div>
-						<input type={"submit"} className={"button"} value={"Add"} />
+					<div className='form-block'>
+						<button className={"form-btn"}><FontAwesomeIcon icon={icon({name: 'angle-double-right'})} /></button>
 					</div>
 				</div>
 			</form>
-		</div>
+		</>
 	)
 
 }
