@@ -1,0 +1,81 @@
+.main {
+	width: 80%;
+}
+
+.external {
+	margin: 25px;
+	width: 200px;
+	height: 200px;
+	border: solid 1px black;
+	display: inline-block;
+}
+
+.internal {
+	width: 95%;
+	height: 90%;
+	margin-top: 20px;
+	word-wrap: break-word;
+}
+
+.close {
+	padding: 0;
+	position: absolute;
+	margin-left: 180px;
+	margin-top: -20px;
+	width: 40px;
+	height: 40px;
+	border: solid 1px black;
+	color: red;
+	background-color: white;
+	align-content: center;
+	border-radius: 50%;
+}
+
+.note-text {
+	margin: 0 20px;
+	width: 50%;
+	height: 200px;
+	border: solid 1px black;
+}
+
+.story {
+	margin: 0;
+	padding: 0;
+	border: none;
+	width: 100%;
+	height: calc(100% - 30px);
+}
+
+.form-label {
+	margin-left: 20px;
+	padding: 0;
+}
+
+.button {
+	width: 40px;
+	height: 20px;
+	position: relative;
+	left: calc(100% - 45px);
+	top: 0;
+}
+
+.button:hover, .update:hover {
+	cursor: pointer;
+	background-color: blue;
+}
+
+.header {
+	margin-left: 20px;
+	width: 50%;
+}
+
+h2 {
+	width: 20%;
+	display: inline-block;
+}
+
+.update {
+  position: relative;
+  top: 0;
+  left: 0;
+}
